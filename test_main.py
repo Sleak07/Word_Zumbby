@@ -2,12 +2,15 @@ import pytest
 
 from main import main
 
+def test_addition_of_two_numbers():
+    """Test addition of two numbers"""
+    assert main(1, 2) == 3
 
-def test_add_positive_numbers():
-    """test twopositive numbers"""
-    assert main(2, 3) == 5
+def test_addition_of_two_negative_numbers():
+    """Test addition of two negative numbers"""
+    assert main(-1, -2) == -3
 
-
-def test_add_negative_numbers():
-    """test twopositive numbers"""
-    assert main(-2, -3) == -5
+@pytest.mark.xfail(reason="Expected failure")
+def test_addition_of_two_different_numbers():
+    """Test addition of two negative numbers"""
+    assert main(-1, -2) == 3
